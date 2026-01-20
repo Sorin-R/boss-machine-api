@@ -1,5 +1,9 @@
 const express = require('express');
 const minionsRouter = express.Router();
+const workRouter = require('./work');
+
+// Mount nested work routes
+minionsRouter.use('/:minionId/work', workRouter);
 
 const {
   getAllFromDatabase,
@@ -54,5 +58,4 @@ minionsRouter.delete('/:minionId', (req, res) => {
   res.status(204).send();
 });
 
-module.exports = minionsRouter;
 module.exports = minionsRouter;
